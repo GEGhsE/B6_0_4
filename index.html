@@ -612,6 +612,7 @@
 
   var demoApi = {
     getRoster: function(){ return demoInit().roster; },
+    loginByNumber: function(no){ var d=demoInit(); var f=d.roster.find(function(s){return String(s.no)===String(no).trim();}); if(!f) return { success:false, message:'등록되지 않은 번호입니다.' }; return { success:true, message:'로그인 성공!', studentId:String(no), name:f.name, no:Number(no) }; },
     getDailyTopic: function(){ var d=demoInit(); return { topic:d.topic, date:(new Date()).toISOString().slice(0,10) }; },
     getTopicSuggestions: function(){ return ['오늘 가장 고마웠던 사람','내가 요즘 빠져 있는 것','만약 하루 동안 어른이 된다면','우리 반에 생긴 재미있는 일']; },
     getAppTexts: function(){ var d=demoInit(); return { questions:d.questions, examples:d.examples }; },
